@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Jewels" %>
+
+<h1>Jewels</h1>
+
+<div id="jewels">
+  <% @jewels.each do |jewel| %>
+    <%= render jewel %>
+    <p>
+      <%= link_to "Show this jewel", jewel %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New jewel", new_jewel_path %>

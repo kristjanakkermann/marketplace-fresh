@@ -1,0 +1,11 @@
+<% content_for :title, "New jewel" %>
+
+<h1>New jewel</h1>
+
+<%= render "form", jewel: @jewel %>
+
+<br>
+
+<div>
+  <%= link_to "Back to jewels", jewels_path %>
+</div>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @jewel %>
+
+<div>
+  <%= link_to "Edit this jewel", edit_jewel_path(@jewel) %> |
+  <%= link_to "Back to jewels", jewels_path %>
+
+  <%= button_to "Destroy this jewel", @jewel, method: :delete %>
+</div>
