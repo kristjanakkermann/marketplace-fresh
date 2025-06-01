@@ -29,5 +29,11 @@ production:
   primary:
     <<: *default_prod
 
+  cache:
+    <<: *default_prod
+
+  queue:
+    <<: *default_prod
+
   cable:
     <<: *default_prod
