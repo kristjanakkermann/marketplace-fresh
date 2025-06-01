@@ -1,0 +1,20 @@
+<h1><%= @item.name %></h1>
+
+<p><%= @item.description %></p>
+<p><%= number_to_currency(@item.price) %></p>
+
+<ul>
+    <li><%= link_to "Edit", edit_item_path(@item) %></li>
+    <li><%= link_to "Destroy", item_path(@item), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure you want to delete this item?" 
+        } %></li>
+</ul>
+
+This item has <%= @item.comments.where(comment_status: "public").count %> comments and counting!
+
+<h2>Comments</h2>
+<%= render @item.comments.where(comment_status: "public") %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form", item: @item %>

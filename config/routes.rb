@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  resources :jewels
+  root "items#index"
+
+  resources :items do
+    resources :comments
+  end
+
+  get "/items", to: "items#index"
+  get "/items/:id", to: "items#show"
+  get "/items/new", to: "items#new"
+  get "/jewels", to: "jewels#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

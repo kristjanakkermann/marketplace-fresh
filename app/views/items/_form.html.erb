@@ -1,0 +1,35 @@
+<%= form_with model: item do |form| %>  
+<div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <%= item.errors.full_messages_for(:name).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+    <%= item.errors.full_messages_for(:description).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :price %><br>
+    <%= form.number_field :price, step: 0.01 %>
+    <%= item.errors.full_messages_for(:price).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :item_status %><br>
+    <%= form.select :item_status, ItemVisible::VALID_ITEM_STATUSES, selected: item.item_status ||
+    "in sales" %>
+</div>
+
+<div>
+    <%= form.submit %>
+</div>
+<% end %>
